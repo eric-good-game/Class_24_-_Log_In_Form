@@ -1,0 +1,11 @@
+extends layout.pug
+
+block header 
+    meta(http-equiv="refresh", content="3; url=/auth/login")
+    
+block content
+    .container
+        .containerMessage
+            h2 Hasta luego #{user}
+block footer_scripts
+    script(src="/js/logout.js")

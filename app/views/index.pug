@@ -1,0 +1,10 @@
+extends layout.pug
+
+block header 
+    
+block content
+    .container
+        div
+            h1= title
+            p Welcome #{user} to #{title}
+            input.btn-logout(type="button", value="Logout", onclick="location.href='/auth/logout'")

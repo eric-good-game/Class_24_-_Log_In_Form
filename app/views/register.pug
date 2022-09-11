@@ -1,0 +1,21 @@
+extends layout.pug
+
+block header
+
+block content
+    .container
+        form#register
+            h1= title
+            .inputContainer
+                label(for="name") Name
+                input(type="text", name="name", id="name")
+            .inputContainer
+                label(for="email") Email
+                input(type="email", name="email", id="email")
+            .inputContainer
+                label(for="password") Password
+                input(type="password", name="password", id="password")
+            input(type="submit", value="Register")
+            a(href="/auth/login") Login
+block footer_scripts
+    script(src="/js/register.js") 
