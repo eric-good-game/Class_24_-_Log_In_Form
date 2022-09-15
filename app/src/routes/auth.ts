@@ -22,30 +22,11 @@ router
         }
     })
     .post('/signup', AuthControllers.signup)
-    .get('/signup', isAuth, (req:Request,res:Response)=>{
-        res.render('register.pug', {title: "Register", page_title: "Class_24"})
+    .get('/*', (req:Request,res:Response)=>{
+        res.sendFile('index.html', { root: 'app/public' })
     })
     .post('/login', AuthControllers.login)
-    .get('/login', isAuth, (req:Request,res:Response)=>{
-        res.render('login.pug', {title: "Login", page_title: "Class_24"})
-    })
     .post('/logout', AuthControllers.logout)
-    .get('/logout', (req:Request,res:Response)=>{
-        if (!req.session.isAuth) {
-            res.redirect('/auth/login')
-            return
-        }
-        const user = req.session.user
-        req.session.destroy((err)=>{
-            if(err) {
-                res.status(500).json({message: err.message})
-                return
-            }
-            console.log('Session Destroyed')
-            res.render('logout.pug', {title: "Logout", user, page_title: "Class_24"})
-            
-        })
-        
-    })
+
 
 export default router
